@@ -63,12 +63,19 @@ class ViewController: UIViewController, XMLParserDelegate, UITableViewDelegate, 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = myTableView.dequeueReusableCell(withIdentifier: "RE", for: indexPath)
         let myItem = elements[indexPath.row]
-        let title = cell.viewWithTag(1) as! UILabel
-        let author = cell.viewWithTag(2) as! UILabel
-        //태그 번호에 해당하는 정보 호출
+        cell.textLabel?.text = myItem["title"]
+         cell.detailTextLabel?.text = myItem["author"]
+        //subtitle을 이용한 출력
         
-        title.text = myItem["title"] //text에 title 저장
-        author.text = myItem["author"]  //text에 author 저장
+        
+//        let title = cell.viewWithTag(1) as! UILabel
+//       let author = cell.viewWithTag(2) as! UILabel
+//        //태그 번호에 해당하는 정보 호출
+//
+//        title.text = myItem["title"] //text에 title 저장
+//       author.text = myItem["author"]  //text에 author 저장
+        //태그를 이용한 출력
+        
         return cell
         
     }
